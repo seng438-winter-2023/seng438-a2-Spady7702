@@ -19,10 +19,10 @@ Text…
 // including the input partitions you have designed
 
 # 3 Test cases developed
-{
+    
     package org.jfree.data.test;
+    
     import static org.junit.Assert.*;
-
     import org.jfree.data.Range;
     import org.junit.*;
 
@@ -76,7 +76,6 @@ Text…
         public static void tearDownAfterClass() throws Exception {
         }
     }
-}
 
 # 4 How the team work/effort was divided and managed
 
