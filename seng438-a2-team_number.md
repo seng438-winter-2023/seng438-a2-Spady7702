@@ -79,7 +79,7 @@ Text…
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+For this lab the group decided to divide themselves into pairs of two to develop the test. Brenek and Ben worked on the test for Range, while Jack and Arion worked on the test for DataUtilities. The group worked on the lab report together. 
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
