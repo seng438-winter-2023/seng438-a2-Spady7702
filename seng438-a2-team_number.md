@@ -8,7 +8,7 @@
 |Brenek Spademan               |30060822    |
 |Ben Leggett                |30114359     |
 |Arion Hamel                |     |
-|Jack Rovere                |     |
+|Jack Rovere                |30085670     |
 
 # 1 Introduction
 
