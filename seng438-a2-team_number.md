@@ -19,63 +19,62 @@ Text…
 // including the input partitions you have designed
 
 # 3 Test cases developed
+{
+    package org.jfree.data.test;
+    import static org.junit.Assert.*;
 
-package org.jfree.data.test;
+    import org.jfree.data.Range;
+    import org.junit.*;
 
-import static org.junit.Assert.*;
+    public class RangeTest {
+        private Range exampleRange;
+        @BeforeClass 
+        public static void setUpBeforeClass() throws Exception {
+        }
 
-import org.jfree.data.Range;
-import org.junit.*;
-
-public class RangeTest {
-    private Range exampleRange;
-    @BeforeClass 
-    public static void setUpBeforeClass() throws Exception {
-    }
-
-
-    @Before
-    public void setUp() throws Exception { exampleRange = new Range(-1, 1);
-    }
+        @Before
+        public void setUp() throws Exception { exampleRange = new Range(-1, 1);
+        }
 
 
-    @Test
-    public void centralValueShouldBeZero() {
-        assertEquals("The central value of -1 and 1 should be 0",
-        0, exampleRange.getCentralValue(), .000000001d);
-    }
-    
-    @Test
-    public void lowerBoundShouldBeNegativeOne() {
-    	assertEquals("The lower bound of -1 and 1 should be -1", -1, exampleRange.getLowerBound(), .000000001d);
-    }
-    
-    @Test
-    public void upperBoundShouldBeOne() {
-    	assertEquals("The upper bound of -1 and 1 should be 1", 1, exampleRange.getUpperBound(), .000000001d);
-    }
-    
-    @Test
-    public void lengthShouldBeTwo() {
-    	assertEquals("The length of -1 and 1 should be 2", 2, exampleRange.getLength(), .000000001d);
-    }
-    
-    @Test
-    public void rangeContainsZero() {
-    	assertEquals("The range of -1 and 1 should contain 0", true, exampleRange.contains(0));
-    }
-    
-    @Test
-    public void rangeDoesNotContainTwo() {
-    	assertEquals("The range of -1 and 1 should not contain 2", false, exampleRange.contains(2));
-    }
+        @Test
+        public void centralValueShouldBeZero() {
+            assertEquals("The central value of -1 and 1 should be 0",
+            0, exampleRange.getCentralValue(), .000000001d);
+        }
 
-    @After
-    public void tearDown() throws Exception {
-    }
+        @Test
+        public void lowerBoundShouldBeNegativeOne() {
+            assertEquals("The lower bound of -1 and 1 should be -1", -1, exampleRange.getLowerBound(), .000000001d);
+        }
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
+        @Test
+        public void upperBoundShouldBeOne() {
+            assertEquals("The upper bound of -1 and 1 should be 1", 1, exampleRange.getUpperBound(), .000000001d);
+        }
+
+        @Test
+        public void lengthShouldBeTwo() {
+            assertEquals("The length of -1 and 1 should be 2", 2, exampleRange.getLength(), .000000001d);
+        }
+
+        @Test
+        public void rangeContainsZero() {
+            assertEquals("The range of -1 and 1 should contain 0", true, exampleRange.contains(0));
+        }
+
+        @Test
+        public void rangeDoesNotContainTwo() {
+            assertEquals("The range of -1 and 1 should not contain 2", false, exampleRange.contains(2));
+        }
+
+        @After
+        public void tearDown() throws Exception {
+        }
+
+        @AfterClass
+        public static void tearDownAfterClass() throws Exception {
+        }
     }
 }
 
