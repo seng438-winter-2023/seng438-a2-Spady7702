@@ -5,9 +5,10 @@
 | Group \#:      |     |
 | -------------- | --- |
 | Student Names: |     |
-|                |     |
-|                |     |
-|                |     |
+|Brenek Spademan               |30060822    |
+|Ben Leggett                |30114359     |
+|Arion Hamel                |     |
+|Jack Rovere                |     |
 
 # 1 Introduction
 
