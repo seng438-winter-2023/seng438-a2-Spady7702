@@ -16,7 +16,17 @@ Text…
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+#DataUtilities Testing
+
+1. calculateColumnTotal(Values2D data, int column)
+
+2. calculateRowTotal(Values2D data, int row)
+
+3. createNumberArray(double[] data)
+
+4. createNumberArray2D(double[][] data)
+
+5. getCumulativePercentages(KeyedValues data)
 
 # 3 Test cases developed
     
