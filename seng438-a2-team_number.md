@@ -99,13 +99,29 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h3>1. getLowerBound()</h3>
 
+getLowerBound returns the lower bound for the created Range object.
+
+
 <h3>2. getUpperBound()</h3>
+
+getUpperBound returns the upper bound for the created Range object.
+
+
 
 <h3>3. getLength()</h3>
 
+getLength returns the length between the upper and lower bounds of the Range object.
+
+
 <h3>4. getCentralValue()</h3>
 
+getCentralValue returns the median value in the middle of the upper and lower bounds of the Range object.
+
+
 <h3>5. contains(double value)</h3>
+
+contains takes a double value as a paramter, returns true if the specified value is within the range of the upper and lower bounds for the Range object, and returns false otherwise. 
+
 
 # 3 Test cases developed
 
