@@ -22,7 +22,7 @@ Before beginning testing we go through a setUp() process, in which we create a n
 
 **1. calculateColumnTotal(Values2D data, int column)**
    
-Each function utilizes as Values2D mock whens umming the values in the column provided.
+Each function utilizes as Values2D mock when summing the values in the column provided.
 
    * First test: 'calculateColumnTotalForFourPositiveValues()' mocks a Values2D object as follows: {3.0, 2.5, 7.0, 10.5} in (0,0), (1,0), (2,0), and (3,0) respectively. The test method expects a sum of 23.0 to be returned.
    
