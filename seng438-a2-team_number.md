@@ -44,7 +44,7 @@ Each function utilizes a Values2D mock when summing the values in the row provid
     
 As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. 'exceptionThrownOnInvalidDataRow()' involves use case testing, in a scenario where a user inputs incorrect data to the function. 
 
-Mocking in this case is useful in both 'calculateColumnTotal' and 'calculateRowTotal' as we do not have to rely on the Values2D class as a dependency. We are able to manufacture our expected output, and test accordingly. However due to our strong control over the test cases, we may lead to overspecification of the test case; limiting the scope of our testing. Similarly, mocking increases the complexity of the test case, making it more difficult to understand for both users and developers. 
+Mocking in both 'calculateColumnTotal' and 'calculateRowTotal' is useful as we do not have to rely on the Values2D class as a dependency. We are able to manufacture our expected output, and test accordingly. However due to our strong control over the test cases, we may lead to overspecification of the test case; limiting the scope of our testing. Similarly, mocking increases the complexity of the test case, making it more difficult to understand for both users and developers. 
 
 **3. createNumberArray(double[] data)**
 
@@ -58,7 +58,7 @@ createNumberArray takes in an array of doubles, and creates an array of Number o
     
     * Third test: 'createNumberArrayNegativeValues()' passes a 'double[] data' with values = {-1.0, -2.0, -3.0, -4.0, -5.0}. It is then passed towards Data.Utilities.createNumberArray() as an argument. The test case expects 'createNumberArray()' to return an array of Number objects = {-1.0, -2.0, -3.0, -4.0, -5.0}.
     
-As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. createEmptyNumberArray() acts as a boundary value and use case test, evaluation how the function behaves with an unexpected input. 
+As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. createEmptyNumberArray() acts as a boundary value and use case test, evaluating how the function behaves with an unexpected input. 
 
 **4. createNumberArray2D(double[][] data)**
 
@@ -66,22 +66,38 @@ There are no mocking objects used in the following test cases.
 
 createNumberArray2D takes in a double (2D) array of doubles, and creates a 2D array of Number objects.
 
-    * First test: 'create2DEmptyNumberArray()' creates a 'double[] data' with no values inside. It is then passed towards DataUtilities.createNumberArray() as an argument. The test case expects 'createNumberArray()' to return an empty array of Number objects.
+    * First test: 'create2DEmptyNumberArray()' creates a 'double[][] data' with no values inside. It is then passed towards DataUtilities.createNumberArray2D() as an argument. The test case expects 'createNumberArray2D()' to return an empty 2D array of Number objects.
     
-    * Second test: 'create2DNumberArrayPositiveValues()' passes a 'double[] data' with values = {1.0, 2.0, 3.0, 4.0, 5.0} into DataUtilites.createNumberArray(). The test case expects 'createNumberArray()' to return an array of Number objects = {1.0, 2.0, 3.0, 4.0, 5.0}. 
+    * Second test: 'create2DNumberArrayPositiveValues()' passes a 'double[][] data' with values = {{1.0, 2.0, 3.0, 4.0, 5.0}, {6.0, 7.0, 8.0}, {1.0}} into DataUtilites.createNumberArray2D(). The test case expects 'createNumberArray2D()' to return a 2D array of Number objects = {{1.0, 2.0, 3.0, 4.0, 5.0}, {6.0, 7.0, 8.0}, {1.0}}. 
     
-    * Third test: 'create2DNumberArrayNegativeValues()' passes a 'double[] data' with values = {-1.0, -2.0, -3.0, -4.0, -5.0}. It is then passed towards Data.Utilities.createNumberArray() as an argument. The test case expects 'createNumberArray()' to return an array of Number objects = {-1.0, -2.0, -3.0, -4.0, -5.0}.
+    * Third test: 'create2DNumberArrayNegativeValues()' passes a 'double[] data' with values = {{-1.0, -2.0, -3.0, -4.0, -5.0}, {-6.0, -7.0, -8.0}, {-1.0}}. It is then passed towards Data.Utilities.createNumberArray2D() as an argument. The test case expects 'createNumberArray2D()' to return a 2D array of Number objects = {{-1.0, -2.0, -3.0, -4.0, -5.0}, {-6.0, -7.0, -8.0}, {-1.0}}.
     
-As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. createEmptyNumberArray() acts as a boundary value and use case test, evaluation how the function behaves with an unexpected input. 
+As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. createEmptyNumberArray2D() acts as a boundary value and use case test, evaluating how the function behaves with an unexpected input. 
+
+Neither createNumberArray or createNumberArray2D's tests utilize mocking, thus a discussion of mocking's benefits and drawbacks is not applicable. 
 
 **5. getCumulativePercentages(KeyedValues data)**
+
+Each test utilizes the KeyedValues mocking object created above. 
+
+DataUtilities.getCumulativePercentages() receives a KeyedValues object - containing key/value pairs - and returns a KeyedValues object in which each key/value pair represents the cumulative percentage thus far of each key/value pair provided. 
+
+    * First test: 'exceptionThrownOnInvalidPercentageData()' passes an invalid argument to 'DataUtilites.getCumulativePercentages()'. Given the documentation of 'getCumulativePercentages()', the test case expects an 'InvalidParameterException' to be thrown. 
+    
+    * Second test: 'cumulatePercentageForZeroValueKeyPairs()' creates a 'String[] names' with values = {"KeyOne", "KeyTwo", "KeyThree"} and a 'double[] values' with values = {0, 0, 0}. This simulates the data in a KeyedValues object as follows: (KeyOne, 0), (KeyTwo, 0), (KeyThree, 0). The test case expects 'getCumulativePercentages()' to return a NaN Divide by zero, as there should be a divide by zero error in calculating the cumulative percentage. 
+    
+    * Third test: 'cumulatePercentageForPositiveValueKeyPairs()' creates a 'String[] names' with values = {"KeyOne", "KeyTwo", "KeyThree"} and a 'double[] values' with values = {5.0, 9.0, 2.0}. This simulates the data in a KeyedValues object as follows: (KeyOne, 5.0), (KeyTwo, 9.0), (KeyThree, 2.0). The test case expects 'getCumulativePercentages()' to return 0.3125 when queried for the value of the resultant KeyOne.
+    
+    * Fourth test: 'cumulatePercentageForNegativeValueKeyPairs()' creates a 'String[] names' with values = {"KeyOne", "KeyTwo", "KeyThree"} and a 'double[] values' with values = {-5.0, -9.0, -2.0}. This simulates the data in a KeyedValues object as follows: (KeyOne, -.50), (KeyTwo, -9.0), (KeyThree, -2.0). The test case expects 'getCumulativePercentages()' to return 0.3125 when queried for the value of the resultant KeyOne.
+    
+As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. exceptionThrownOnInvalidPercentageData() acts as a boundary value and use case test, evaluating how the function behaves with an unexpected input, and ensuring an 'InvalidParameterException' is properly thrown. Similarly 'cumulatePercentageForZeroValueKeyPairs()' is a boundary value and use case test, as it provides an unusual input that should provide an error if handled properly. 
+
+Mocking in 'getCumulativepercentages()' was useful in isolated the test component and functionality being testing. We effectively eliminated the KeyedValues class dependency, and were able to manufacture our expected output, and test accordingly. However the tests became significantly more complex and may not accurately reflect the behaviour of the code in a real-world scenario. Using KeyedValues objects may produce differing results. 
 
 # 3 Test cases developed
 
 <h2><what> Testing | Brenek & Ben </h2>
-
-
-    
+	
     package org.jfree.data.test;
     
     import static org.junit.Assert.*;
@@ -417,12 +433,18 @@ As the system does not explicitly define boundaries for inputs, we test both neg
 	}
 
 # 4 How the team work/effort was divided and managed
+							       
+<h2>Brenek & Ben</h2>
 
-For this lab the group decided to divide themselves into pairs of two to develop the test. Brenek and Ben worked on the test for Range, while Jack and Arion worked on the test for DataUtilities. The group worked on the lab report together. 
+<h2>Jack & Arion</h2>
+
+Jack and Arion handled the DataUtilities test cases. Jack was responsible for utilizing jMock, JUnit tests and Eclipse to implement the test cases. Arion created the test plan and aided Jack where possible in the implementation of the plan. 
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+<h2>Jack & Arion</h2> 
+
+Jack and Arion encountered difficulties figuring out the semantics behind jMock while attemting to mock Values2D and KeyedValues objects in their tests. Eventually We learned the proper syntax and gained valuable experience in jMock. 
 
 # 6 Comments/feedback on the lab itself
 
