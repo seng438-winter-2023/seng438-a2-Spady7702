@@ -20,7 +20,7 @@ Text…
 
 Before beginning testing we go through a setUp() process, in which we create a new Mockery object to mock Values2D and KeyedValues objects.
 
-**1. calculateColumnTotal(Values2D data, int column)**
+<h3>1. calculateColumnTotal(Values2D data, int column)</h3>
    
 Each function utilizes as Values2D mock when summing the values in the column provided.
 
@@ -32,7 +32,7 @@ Each function utilizes as Values2D mock when summing the values in the column pr
 
 As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. 'exceptionThrownOnInvalidDataColumn()' involves use case testing, in a scenario where a user inputs incorrect data to the function. 
 
-**2. calculateRowTotal(Values2D data, int row)**
+<h3>2. calculateRowTotal(Values2D data, int row)</h3>
 
 Each function utilizes a Values2D mock when summing the values in the row provided.
    
@@ -46,7 +46,7 @@ As the system does not explicitly define boundaries for inputs, we test both neg
 
 Mocking in both 'calculateColumnTotal' and 'calculateRowTotal' is useful as we do not have to rely on the Values2D class as a dependency. We are able to manufacture our expected output, and test accordingly. However due to our strong control over the test cases, we may lead to overspecification of the test case; limiting the scope of our testing. Similarly, mocking increases the complexity of the test case, making it more difficult to understand for both users and developers. 
 
-**3. createNumberArray(double[] data)**
+<h3>3. createNumberArray(double[] data)</h3>
 
 There are no mocking objects used in the following test cases.
 
@@ -60,7 +60,7 @@ createNumberArray takes in an array of doubles, and creates an array of Number o
     
 As the system does not explicitly define boundaries for inputs, we test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. createEmptyNumberArray() acts as a boundary value and use case test, evaluating how the function behaves with an unexpected input. 
 
-**4. createNumberArray2D(double[][] data)**
+<h3>4. createNumberArray2D(double[][] data)</h3>
 
 There are no mocking objects used in the following test cases.
 
@@ -76,7 +76,7 @@ As the system does not explicitly define boundaries for inputs, we test both neg
 
 Neither createNumberArray or createNumberArray2D's tests utilize mocking, thus a discussion of mocking's benefits and drawbacks is not applicable. 
 
-**5. getCumulativePercentages(KeyedValues data)**
+<h3>5. getCumulativePercentages(KeyedValues data)</h3>
 
 Each test utilizes the KeyedValues mocking object created above. 
 
