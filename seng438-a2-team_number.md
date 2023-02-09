@@ -438,7 +438,7 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h2>Jack & Arion</h2>
 
-Jack and Arion handled the DataUtilities test cases. Jack was responsible for utilizing jMock, JUnit tests and Eclipse to implement the test cases. Arion created the test plan and aided Jack where possible in the implementation of the plan. 
+Jack and Arion handled the DataUtilities test cases. Jack was responsible for utilizing jMock, JUnit tests and Eclipse to implement the test cases. Arion created the test plan and aided Jack where possible in the implementation of the plan. Ben and Brenek did one mocking test each to learn the functionality of mocking in JUnit as well. 
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
