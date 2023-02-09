@@ -101,7 +101,7 @@ No mocking objects were created for any of the following methods of the Range fu
 
 getLowerBound returns the lower bound for the created Range object. 
 
-* First test: 'lowerBoundShouldBeNegativeOne()'
+* First test: 'lowerBoundShouldBeNegativeOne()' 
 * Second test: 'lowerBoundShouldBeZero()'
 * Third test: 'lowerBoundShouldBe100()'
 * Fourth test: 'lowerBoundShouldBeNegative100()'
@@ -130,10 +130,11 @@ getLength returns the value of the numeric range between the upper and lower bou
 
 getCentralValue returns the median value at thte middle of the upper and lower bounds of the Range object.
 
-* First test: 'centralValueShouldBeZero()'
-* Second test: 'centralValueShouldBeNegative150()'
-* Third test: 'centralValueShouldBe150()'
+* First test: 'centralValueShouldBeZero()' uses the Range object 'example Range' created with an upper bound of 1 and lower bound of -1. This test expects that a value of 0 is returned after calling exampleRange.getCentralValue().
+* Second test: 'centralValueShouldBeNegative150()' creates a new Range object with a lower and upper bound of (-200, -100) respectively. This test expects that a value of -150 is returned after calling exampleRange.getCentralValue(). 
+* Third test: 'centralValueShouldBe150()' creates a new Range object with a lower and upper bound of (200, 100) respectively. This test expects that a value of 150 is returned after calling exampleRange.getCentralValue(). 
 
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of a range spannign over both posiitve and negative values in the 'centralValueShouldBeZero()' test.
 
 <h3>5. contains(double value)</h3>
 
@@ -141,13 +142,13 @@ contains recieves a double value, returns true if the specified value is within 
 
 * First test: 'rangeContains100()'
 * Second test: 'rangeDoesNotContain49()'
-* Third test:
-* Fourth test: 
-* Fifth test:
-* Sixth test: 
-* Seventh test:
-* Eighth test:
-* Ninth Test: 
+* Third test: 'rangeDoesNotContain151()'
+* Fourth test: 'rangeContainsZero()'
+* Fifth test: 'rangeDoesNotContainTwo()'
+* Sixth test: 'rangeDoesNotContainNegativeTwo()'
+* Seventh test: 'rangeContainsNegative100()'
+* Eighth test: 'rangeDoesNotContainNegative151()'
+* Ninth Test: 'rangeDoesNotContainNegative49()'
 
 # 3 Test cases developed
 
