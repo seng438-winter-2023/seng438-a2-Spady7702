@@ -2,9 +2,8 @@
 
 **Lab. Report \#2 – Requirements-Based Test Generation**
 
-| Group \#:      |     |
+| Group \#:      |   7  |
 | -------------- | --- |
-| Student Names: |     |
 |Brenek Spademan               |30060822    |
 |Ben Leggett                |30114359     |
 |Arion Hamel                |30112662     |
@@ -12,7 +11,7 @@
 
 # 1 Introduction
 
-Text…
+In this lab, we will explore how unit tests are created in the Java language using JUnit. We will observe many kind of testing techniques, and use Mocking to assist in removing dependancies from each test that has one. We will split up the work into two groups: Ben and Brenek will primarily focus on testing the Range class, and Jack and Arion will primarily focus on the DataUtilities class. Before this lab, we all had some experience with unit testing in Java, from our provious course ENSF409. When it comes to mocking, only Jack had previous knowlegde on the subject, as he worked as a Software Quality Intern at Garmin previously, creating unit tests that involve mocking in the Python language.
 
 # 2 Detailed description of unit test strategy
 
@@ -99,29 +98,13 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h3>1. getLowerBound()</h3>
 
-getLowerBound returns the lower bound for the created Range object.
-
-
 <h3>2. getUpperBound()</h3>
-
-getUpperBound returns the upper bound for the created Range object.
-
-
 
 <h3>3. getLength()</h3>
 
-getLength returns the length between the upper and lower bounds of the Range object.
-
-
 <h3>4. getCentralValue()</h3>
 
-getCentralValue returns the median value in the middle of the upper and lower bounds of the Range object.
-
-
 <h3>5. contains(double value)</h3>
-
-contains takes a double value as a paramter, returns true if the specified value is within the range of the upper and lower bounds for the Range object, and returns false otherwise. 
-
 
 # 3 Test cases developed
 
