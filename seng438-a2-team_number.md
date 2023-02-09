@@ -94,6 +94,9 @@ We test both negative and positive numbers as a form of equivalence partitioning
 
 Mocking in 'getCumulativepercentages()' was useful in isolated the test component and functionality being testing. We effectively eliminated the KeyedValues class dependency, and were able to manufacture our expected output, and test accordingly. However the tests became significantly more complex and may not accurately reflect the behaviour of the code in a real-world scenario. Using KeyedValues objects may produce differing results. 
 
+
+<h2>Range Testing | Brenek & Ben </h2>
+
 # 3 Test cases developed
 
 <h2><what> Testing | Brenek & Ben </h2>
