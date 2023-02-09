@@ -96,195 +96,92 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h2>Range Testing | Brenek & Ben </h2>
 
+No mocking objects were created for any of the following methods of the Range function and their repsective tests.
 <h3>1. getLowerBound()</h3>
+
+getLowerBound returns the lower bound for the created Range object. 
+
 
 <h3>2. getUpperBound()</h3>
 
+getUpperBound returns the upper bound for the created Range object. 
+
+
 <h3>3. getLength()</h3>
+
+getLength returns the value of the numeric range between the upper and lower bounds of the Range object. 
+
 
 <h3>4. getCentralValue()</h3>
 
+getCentralValue returns the median value at thte middle of the upper and lower bounds of the Range object.
+
+
 <h3>5. contains(double value)</h3>
+
+contains recieves a double value, returns true if the specified value is within the range, and false otherwise.
+
 
 # 3 Test cases developed
 
 <h2><what> Testing | Brenek & Ben </h2>
 	
-	package org.jfree.data.test;
+    package org.jfree.data.test;
+    
+    import static org.junit.Assert.*;
+    import org.jfree.data.Range;
+    import org.junit.*;
 
-	import static org.junit.Assert.*;
+    public class RangeTest {
+        private Range exampleRange;
+        @BeforeClass 
+        public static void setUpBeforeClass() throws Exception {
+        }
 
-	import org.jfree.data.Range;
-	import org.junit.*;
-
-	public class RangeTest {
-	    private Range exampleRange;
-	    @BeforeClass 
-	    public static void setUpBeforeClass() throws Exception {
-	    }
-
-
-	    @Before
-	    public void setUp() throws Exception { exampleRange = new Range(-1, 1);
-	    }
+        @Before
+        public void setUp() throws Exception { exampleRange = new Range(-1, 1);
+        }
 
 
-	    @Test
-	    public void centralValueShouldBeZero() {
-		assertEquals("The central value of -1 and 1 should be 0",
-		0, exampleRange.getCentralValue(), .000000001d);
-	    }
+        @Test
+        public void centralValueShouldBeZero() {
+            assertEquals("The central value of -1 and 1 should be 0",
+            0, exampleRange.getCentralValue(), .000000001d);
+        }
 
-	    @Test
-	    public void centralValueShouldBeNegative150() {
-		exampleRange = new Range(-200, -100);
-		assertEquals("The central value of -200 and -100 should be -150",
-		-150, exampleRange.getCentralValue(), .000000001d);
-	    }
+        @Test
+        public void lowerBoundShouldBeNegativeOne() {
+            assertEquals("The lower bound of -1 and 1 should be -1", -1, exampleRange.getLowerBound(), .000000001d);
+        }
 
-	    @Test
-	    public void centralValueShouldBe150() {
-		exampleRange = new Range(100, 200);
-		assertEquals("The central value of 100 and 200 should be 150",
-		150, exampleRange.getCentralValue(), .000000001d);
-	    }
+        @Test
+        public void upperBoundShouldBeOne() {
+            assertEquals("The upper bound of -1 and 1 should be 1", 1, exampleRange.getUpperBound(), .000000001d);
+        }
 
-	    @Test
-	    public void lowerBoundShouldBeNegativeOne() {
-		assertEquals("The lower bound of -1 and 1 should be -1", -1, exampleRange.getLowerBound(), .000000001d);
-	    }
+        @Test
+        public void lengthShouldBeTwo() {
+            assertEquals("The length of -1 and 1 should be 2", 2, exampleRange.getLength(), .000000001d);
+        }
 
-	    @Test
-	    public void lowerBoundShouldBeZero() {
-		exampleRange = new Range(0, 100);
-		assertEquals("The lower bound of 0 and 100 should be 0", 0, exampleRange.getLowerBound(), .000000001d);
-	    }
+        @Test
+        public void rangeContainsZero() {
+            assertEquals("The range of -1 and 1 should contain 0", true, exampleRange.contains(0));
+        }
 
-	    @Test
-	    public void lowerBoundShouldBe100() {
-		exampleRange = new Range(100, 200);
-		assertEquals("The lower bound of 100 and 200 should be 100", 100, exampleRange.getLowerBound(), .000000001d);
-	    }
+        @Test
+        public void rangeDoesNotContainTwo() {
+            assertEquals("The range of -1 and 1 should not contain 2", false, exampleRange.contains(2));
+        }
 
-	    @Test
-	    public void lowerBoundShouldBeNegative100() {
-		exampleRange = new Range(-100, -50);
-		assertEquals("The lower bound of -100 and -50 should be -100", -100, exampleRange.getLowerBound(), .000000001d);
-	    }
+        @After
+        public void tearDown() throws Exception {
+        }
 
-	    @Test
-	    public void upperBoundShouldBeOne() {
-		assertEquals("The upper bound of -1 and 1 should be 1", 1, exampleRange.getUpperBound(), .000000001d);
-	    }
-
-	    @Test
-	    public void upperBoundShouldBeOneHundred() {
-		exampleRange = new Range(50,100);
-		assertEquals("The upper bound of 50 and 100 should be 100", 100, exampleRange.getUpperBound(), .000000001d);
-	    }
-
-
-	    @Test
-	    public void upperBoundShouldZero() {
-		exampleRange = new Range(-50,0);
-		assertEquals("The upper bound of -50 and 0 should be 0", 0, exampleRange.getUpperBound(), .000000001d);
-	    }
-
-	    @Test
-	    public void upperBoundShouldBeNegativeOneHundred() {
-		exampleRange = new Range(-500,-100);
-		assertEquals("The upper bound of -500 and -100 should be -100", -100, exampleRange.getUpperBound(), .000000001d);
-	    }
-
-	    @Test
-	    public void lengthShouldBeTwo() {
-		assertEquals("The length of -1 and 1 should be 2", 2, exampleRange.getLength(), .000000001d);
-	    }
-
-	    @Test
-	    public void lengthShouldBeFifty() {
-		exampleRange = new Range (-100, -50);
-		assertEquals("The length of -100 and -50 should be 50", 50, exampleRange.getLength(), .000000001d);
-	    }
-
-	    @Test
-	    public void lengthShouldBeOneHundred() {
-		exampleRange = new Range (-100, 0);
-		assertEquals("The length of -100 and 0 should be 100", 100, exampleRange.getLength(), .000000001d);
-	    }
-
-	    @Test
-	    public void lengthShouldBeTen() {
-		exampleRange = new Range (0, 10);
-		assertEquals("The length of 0 and 10 should be 10", 10, exampleRange.getLength(), .000000001d);
-	    }
-
-	    @Test
-	    public void lengthShouldBeTwenty() {
-		exampleRange = new Range (20, 40);
-		assertEquals("The length of 20 and 40 should be 20", 20, exampleRange.getLength(), .000000001d);
-	    }
-
-
-	    @Test
-	    public void rangeContains100() {
-		exampleRange = new Range (50, 150);
-		assertEquals("The range of 50 and 150 should contain 100", true, exampleRange.contains(100));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContain49() {
-		exampleRange = new Range (50, 150);
-		assertEquals("The range of 50 and 150 should not contain 49", false, exampleRange.contains(49));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContain151() {
-		exampleRange = new Range (50, 150);
-		assertEquals("The range of 50 and 150 should not contain 151", false, exampleRange.contains(151));
-	    }
-
-	    @Test
-	    public void rangeContainsZero() {
-		assertEquals("The range of -1 and 1 should contain 0", true, exampleRange.contains(0));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContainTwo() {
-		assertEquals("The range of -1 and 1 should not contain 2", false, exampleRange.contains(2));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContainNegativeTwo() {
-		assertEquals("The range of -1 and 1 should not contain -2", false, exampleRange.contains(-2));
-	    }
-
-	    @Test
-	    public void rangeContainsNegative100() {
-		exampleRange = new Range (-150, -50);
-		assertEquals("The range of -150 and -50 should contain -100", true, exampleRange.contains(-100));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContainNegative151() {
-		exampleRange = new Range (-150, -50);
-		assertEquals("The range of -150 and -50 should not contain -151", false, exampleRange.contains(-151));
-	    }
-
-	    @Test
-	    public void rangeDoesNotContainNegative49() {
-		exampleRange = new Range (-150, -50);
-		assertEquals("The range of -150 and -50 should not contain -49", false, exampleRange.contains(-49));
-	    }
-
-	    @After
-	    public void tearDown() throws Exception {
-	    }
-
-	    @AfterClass
-	    public static void tearDownAfterClass() throws Exception {
-	    }
-	}
+        @AfterClass
+        public static void tearDownAfterClass() throws Exception {
+        }
+    }
     
 <h2>DataUtilities Testing | Jack & Arion </h2>
    
