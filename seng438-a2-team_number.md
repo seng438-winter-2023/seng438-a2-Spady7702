@@ -97,6 +97,16 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h2>Range Testing | Brenek & Ben </h2>
 
+<h3>1. getLowerBound()</h3>
+
+<h3>2. getUpperBound()</h3>
+
+<h3>3. getLength()</h3>
+
+<h3>4. getCentralValue()</h3>
+
+<h3>5. contains(double value)</h3>
+
 # 3 Test cases developed
 
 <h2><what> Testing | Brenek & Ben </h2>
