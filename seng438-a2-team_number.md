@@ -487,15 +487,22 @@ contains recieves a double value, returns true if the specified value is within 
         public static void tearDownAfterClass() throws Exception {}
 	}
 
+
 # 4 How the team work/effort was divided and managed
 							       
 <h2>Brenek & Ben</h2>
+
+Brenek and Ben handled the Range test cases. Brenek was responsible for using, JUnit tests and Eclipse to implement the test cases. Ben created the test plan and helped Brenek to code a few of the unit tests. Ben and Brenek also implemented one test case each for DataUtilities, in order to learn how to use jMock. 
 
 <h2>Jack & Arion</h2>
 
 Jack and Arion handled the DataUtilities test cases. Jack was responsible for utilizing jMock, JUnit tests and Eclipse to implement the test cases. Arion created the test plan and aided Jack where possible in the implementation of the plan. Ben and Brenek did one mocking test each to learn the functionality of mocking in JUnit as well. 
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
+
+<h2>Brenek & Ben</h2>
+
+Brenek and Ben encountered dificulties, as both had never used eclipse before. They learned how to use eclipse and how to run Junit tests in eclipse, while also learning how to develop test usign jMock.
 
 <h2>Jack & Arion</h2> 
 
