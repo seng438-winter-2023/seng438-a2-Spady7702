@@ -444,7 +444,7 @@ Jack and Arion handled the DataUtilities test cases. Jack was responsible for ut
 
 <h2>Jack & Arion</h2> 
 
-Jack and Arion encountered difficulties figuring out the semantics behind jMock while attemting to mock Values2D and KeyedValues objects in their tests. Eventually We learned the proper syntax and gained valuable experience in jMock. 
+Jack and Arion encountered difficulties figuring out the semantics behind jMock while attempting to mock Values2D and KeyedValues objects in their tests. Eventually they learned the proper syntax and gained valuable experience in jMock. 
 
 # 6 Comments/feedback on the lab itself
 
