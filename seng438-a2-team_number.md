@@ -96,35 +96,40 @@ Mocking in 'getCumulativepercentages()' was useful in isolated the test componen
 
 <h2>Range Testing | Brenek & Ben </h2>
 
-No mocking objects were created for any of the following methods of the Range function and their repsective tests.
+No mocking objects were created for any of the following methods of the Range function and their repsective tests. A Range object called 'exampleRange' was created witha lower and upper bound of -1 and 1 respectively to be used in tests where neccassary. 
 <h3>1. getLowerBound()</h3>
 
 getLowerBound returns the lower bound for the created Range object. 
 
-* First test: 'lowerBoundShouldBeNegativeOne()' 
-* Second test: 'lowerBoundShouldBeZero()'
-* Third test: 'lowerBoundShouldBe100()'
-* Fourth test: 'lowerBoundShouldBeNegative100()'
+* First test: 'lowerBoundShouldBeNegativeOne()' uses the Range object 'exampleRange' and calls the 'getLowerBound()' function to return the lower bound for the object. The expected return value is a value of -1 for a range containing both poitive and negative values. 
+* Second test: 'lowerBoundShouldBeZero()' creates a new Range object with an lower and upper bound of 0 and 100 respectively. The 'getLowerBound()' method is then called, and the expected return value is 0.
+* Third test: 'lowerBoundShouldBe100()' creates a new Range object with an lower and upper bound of 100 and 200 respectively. The 'getLowerBound()' method is then called, and the expected return value is 100 for a range containing only positive values.
+* Fourth test: 'lowerBoundShouldBeNegative100()' creates a new Range object with an lower and upper bound of -100 and -50 respectively. The 'getLowerBound()' method is then called, and the expected return value is -50 for a range containing only negative values.
 
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of ranges spanning over both positive and negative values, all positive and all negative values.
 
 <h3>2. getUpperBound()</h3>
 
 getUpperBound returns the upper bound for the created Range object. 
 
-* First test: 'upperBoundShouldBeOne()'
-* Second test: 'upperBoundShouldBeOneHundred()'
-* Third test: 'upperBoundShouldZero()'
-* Fourth test: 'upperBoundShouldBeNegativeOneHundred()'
+* First test: 'upperBoundShouldBeOne()' uses the Range object 'exampleRange' and calls the 'getUpperBound()' function to return the upper bound for the object. The expected return value is a value of 1 for a range containing both poitive and negative values.
+* Second test: 'upperBoundShouldBeOneHundred()' creates a new Range object with an lower and upper bound of 0 and 100 respectively. The 'getUpperBound()' method is then called, and the expected return value is 100.
+* Third test: 'upperBoundShouldZero()' creates a new Range object with an lower and upper bound of -50 and 0 respectively. The 'getUpperBound()' method is then called, and the expected return value is 0. 
+* Fourth test: 'upperBoundShouldBeNegativeOneHundred()' creates a new Range object with an lower and upper bound of -500 and -100 respectively. The 'getUpperBound()' method is then called, and the expected return value is -100.
+
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of ranges spanning over both positive and negative values, all positive and all negative values. We have created tests with ranges where either the upper or lower bound is 0 in order to ensure that any unexpected behaviour is able to be observed in these situations. 
 
 <h3>3. getLength()</h3>
 
 getLength returns the value of the numeric range between the upper and lower bounds of the Range object. 
 
-* First test: 'lengthShouldBeTwo()'
-* Second test: 'lengthShouldBeFifty()'
-* Third test: 'lengthShouldBeOneHundred()'
-* Fourth test: 'lengthShouldBeTen()'
-* Fifth test: 'lengthShouldBeTwenty()'
+* First test: 'lengthShouldBeTwo()' uses the Range object 'exampleRange' and calls the 'getLength()' function to return the length of the specified range for the object. The expected return value is 2, and this test covers the scenerio where a range has both a positive and a negative bound.
+* Second test: 'lengthShouldBeFifty()' creates a new Range object with an lower and upper bound of -100 and -50 respectively. The expected return value is 50, and this test covers the scenerio where a range has both bounds as negative values.
+* Third test: 'lengthShouldBeOneHundred()' creates a new Range object with an lower and upper bound of -100 and 0 respectively. The expected return value is 100, and this test covers the scenerio where a range has a negative bound and a bound equal to 0.
+* Fourth test: 'lengthShouldBeTen()' creates a new Range object with an lower and upper of 0 and 10 respectively. The expected return value is 10, and this test covers the scenerio where a range has both a bound that is zero and a positive value.
+* Fifth test: 'lengthShouldBeTwenty()' creates a new Range object with an lower and upper bound of 20 and 40 respectively. The expected return value is 20, and this test covers the scenerio where a range has both bounds as positive values.
+
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of ranges spanning over both positive and negative values, all positive bounds or all negative values as bounds. We have created tests with ranges where either the upper or lower bound is 0 in order to ensure that any unexpected behaviour is able to be observed in these situations. 
 
 <h3>4. getCentralValue()</h3>
 
@@ -132,23 +137,25 @@ getCentralValue returns the median value at thte middle of the upper and lower b
 
 * First test: 'centralValueShouldBeZero()' uses the Range object 'example Range' created with an upper bound of 1 and lower bound of -1. This test expects that a value of 0 is returned after calling exampleRange.getCentralValue().
 * Second test: 'centralValueShouldBeNegative150()' creates a new Range object with a lower and upper bound of (-200, -100) respectively. This test expects that a value of -150 is returned after calling exampleRange.getCentralValue(). 
-* Third test: 'centralValueShouldBe150()' creates a new Range object with a lower and upper bound of (200, 100) respectively. This test expects that a value of 150 is returned after calling exampleRange.getCentralValue(). 
+* Third test: 'centralValueShouldBe150()' creates a new Range object with a upper and lower bound of (200, 100) respectively. This test expects that a value of 150 is returned after calling exampleRange.getCentralValue(). 
 
-We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of a range spannign over both posiitve and negative values in the 'centralValueShouldBeZero()' test.
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. We test the output of a range spanning over both positive and negative values in the 'centralValueShouldBeZero()' test.
 
 <h3>5. contains(double value)</h3>
 
 contains recieves a double value, returns true if the specified value is within the range, and false otherwise.
 
-* First test: 'rangeContains100()'
-* Second test: 'rangeDoesNotContain49()'
-* Third test: 'rangeDoesNotContain151()'
-* Fourth test: 'rangeContainsZero()'
-* Fifth test: 'rangeDoesNotContainTwo()'
-* Sixth test: 'rangeDoesNotContainNegativeTwo()'
-* Seventh test: 'rangeContainsNegative100()'
-* Eighth test: 'rangeDoesNotContainNegative151()'
-* Ninth Test: 'rangeDoesNotContainNegative49()'
+* First test: 'rangeContains100()' creates a new Range object with a lower and upper bound of 50 and 150 respectively. The double value used when calling the 'contains()' function is 100, and the expected return value is true as the value of 100 is within the range. 
+* Second test: 'rangeDoesNotContain49()' creates a new Range object with a lower and upper bound of 50 and 150 respectively. The double value used when calling the 'contains()' function is 49, and the expected return value is false as the value of 49 is not within the range. This observes the scenerio where the paramter passed to the contains() function is lower than the lower bound.
+* Third test: 'rangeDoesNotContain151()' creates a new Range object with a lower and upper bound of 50 and 150 respectively. The double value used when calling the 'contains()' function is 151, and the expected return value is false as the value of 151 is not within the range. This observes the scenerio where the paramter passed to the contains() function exceeds the upper bound.
+* Fourth test: 'rangeContainsZero()' uses the Range object 'exampleRange' and passes a value of 0 to the 'contains()' function. The expected output is true as 0 is within the range of the object. This covers a scenerio where the value is within the range, and the range bounds are both a negative and a positive value.
+* Fifth test: 'rangeDoesNotContainTwo()' uses the Range object 'exampleRange' and passes a value of 2 to the 'contains()' function. The expected output is false as 2 exceeds the upper limit of this Range object. This covers a scenerio where the value exceeds the range, and the range bounds are both a negative and a positive value.
+* Sixth test: 'rangeDoesNotContainNegativeTwo()' uses the Range object 'exampleRange' and passes a value of -2 to the 'contains()' function. The expected output is false as -2 less than the lower bound of the Range object. This covers a scenerio where the value is less than the lower bound, and the range bounds are both a negative and a positive value.
+* Seventh test: 'rangeContainsNegative100()' creates a new Range object with a lower and upper bound of -150 and -50 respectively. The double value used when calling the 'contains()' function is -100, and the expected return value is true as the value of -100 is within the range. Both the upper and lower bound values are negative.  
+* Eighth test: 'rangeDoesNotContainNegative151()' creates a new Range object with a lower and upper bound of -150 and -50 respectively. The double value used when calling the 'contains()' function is -151, and the expected return value is false as the value of -151 is less than the lower bound.   
+* Ninth Test: 'rangeDoesNotContainNegative49()' creates a new Range object with a lower and upper bound of -150 and -50 respectively. The double value used when calling the 'contains()' function is -49, and the expected return value is false as the value of -49 exceeds the range. Both the upper and lower bound values are negative.  
+
+We test both negative and positive numbers as a form of equivalence partitioning and boundary value analysis. The case of a value being passed to the 'contains()' that is either too large for, too small for or within the range is tested in each possible scenerio regarding the upper and lower bounds and wether or not they are positive, negative or equal to zero.
 
 # 3 Test cases developed
 
